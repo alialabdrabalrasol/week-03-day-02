@@ -55,13 +55,13 @@ public class UserService {
         userRepository.save(old_user);
     }
     public Boolean hasJoinedIn(LocalDate joiningYear,Integer id){
-        Boolean hasJoined =userRepository.existsUserByIdAndJoiningYearIsOrJoiningYearIsBefore(id,joiningYear,joiningYear);
+        Boolean hasJoined =userRepository.existsUserByIdAndJoiningYear(id,joiningYear);
         return hasJoined;
     }
     public List<User> getUsersByJoiningYear(LocalDate joiningYear){
-        return userRepository.getUsersByJoiningYearIsOrJoiningYearIsAfter(joiningYear,joiningYear);
+        return userRepository.getUsersByJoiningYearIsGreaterThanEqual(joiningYear);
     }
     public List<User> getUsersByAgeandJoiningYear(Integer age,LocalDate joiningYear){
-    return userRepository.getUsersByAgeAndJoiningYearIsOrJoiningYearIsBefore(age,joiningYear,joiningYear);
+    return userRepository.getUsersByJoiningYearIsGreaterThanEqualAndAgeEquals(joiningYear,age);
     }
 }

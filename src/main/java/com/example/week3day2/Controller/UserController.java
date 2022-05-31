@@ -66,16 +66,16 @@ public class UserController {
         userService.updatePassword(password,id);
         return ResponseEntity.status(200).body("Password updated");
     }
-    @GetMapping("joined")//problem
+    @GetMapping("joined")
     public  ResponseEntity hasJoined(@RequestParam Integer id, @RequestParam LocalDate joiningyear){
        Boolean Joined= userService.hasJoinedIn(joiningyear,id);
         return ResponseEntity.status(200).body(Joined);
     }
-    @GetMapping("joined/all")//problem
+    @GetMapping("joined/all")
     public ResponseEntity getUsersByJoiningYear(@RequestParam LocalDate joiningYear ){
         return ResponseEntity.status(200).body(userService.getUsersByJoiningYear(joiningYear));
     }
-    @GetMapping("joined/{age}")//problem
+    @GetMapping("joined/{age}")
     public ResponseEntity getUsersByAgeandJoiningYear(@PathVariable Integer age,@RequestParam LocalDate joiningYear){
         return ResponseEntity.status(200).body(userService.getUsersByAgeandJoiningYear(age,joiningYear));
     }

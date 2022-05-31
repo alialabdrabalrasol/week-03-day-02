@@ -17,11 +17,10 @@ public interface UserRepository extends JpaRepository<User,Integer> {
         Integer countUsersByRole(String role);
         Boolean existsUserByUsernameAndPassword(String username,String password);
         Boolean existsUserByIdAndRole(Integer id,String role);
-        Boolean existsUserByIdAndJoiningYearIsOrJoiningYearIsBefore(Integer id, LocalDate joiningYear, LocalDate joiningYear1);
+        Boolean existsUserByIdAndJoiningYear(Integer id, LocalDate joiningYear);
         Boolean getUserByIdAndJoiningYearEquals(Integer id, LocalDate joiningYear);
-        List<User> getUsersByJoiningYearIsOrJoiningYearIsAfter(LocalDate joiningYear,LocalDate joiningYear1);
+        List<User> getUsersByJoiningYearIsGreaterThanEqual(LocalDate joiningYear);
 
-        List<User> getUsersByJoiningYearIsGreaterThanEqualAndAgeEquals(Integer age,LocalDate joiningYear);
+        List<User> getUsersByJoiningYearIsGreaterThanEqualAndAgeEquals(LocalDate joiningYear,Integer age);
 
-        //  List<User> getUsersByAgeAndJoiningYearIsOrJoiningYearIsBefore(Integer age,LocalDate joiningYear);
-}
+       }
